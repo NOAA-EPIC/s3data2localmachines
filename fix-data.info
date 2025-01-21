@@ -1,0 +1,228 @@
+On AWS, we have fix at:
+export BUCKET_URI=s3://noaa-nagape-none-ca-epic
+
+/bucket/global-workflow-shared-data/fix
+
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 17:38 aer
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 17:38 am
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 17:38 chem
+drwxr-xr-x. 5 Wei.Huang pwuser 6144 Oct  3 17:49 cice
+-rw-r--r--. 1 Wei.Huang pwuser  438 Oct  3 17:38 copy_aws_bucket.sh
+drwxr-xr-x. 4 Wei.Huang pwuser 6144 Oct  3 17:49 cpl
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 17:49 datm
+drwxr-xr-x. 8 Wei.Huang pwuser 6144 Oct  3 17:52 gdas
+drwxr-xr-x. 4 Wei.Huang pwuser 6144 Oct  3 17:52 gldas
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 17:54 glwu
+drwxr-xr-x. 7 Wei.Huang pwuser 6144 Oct  3 18:16 gsi
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 18:17 lut
+drwxr-xr-x. 5 Wei.Huang pwuser 6144 Oct  3 18:17 mom6
+drwxr-xr-x. 7 Wei.Huang pwuser 6144 Oct  3 22:20 orog
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 22:21 raw
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 22:21 reg2grb2
+drwxr-xr-x. 5 Wei.Huang pwuser 6144 Oct  3 22:22 sfc_climo
+drwxr-xr-x. 6 Wei.Huang pwuser 6144 Oct  3 22:26 ugwd
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 22:27 verif
+drwxr-xr-x. 5 Wei.Huang pwuser 6144 Oct  3 22:31 wave
+
+aer/20220805
+
+am/20220805/
+
+chem/20220805/fimdata_chem/fimdata_chem_G6_Li
+chem/20220805/Emission_data/fires_data
+chem/20220805/Emission_data/OLSON2
+chem/20220805/Emission_data/SURFACE_DATA
+chem/20220805/grid-spec/C384   (Should only for Fire)
+
+cice               
+drwxr-xr-x. 7 Wei.Huang pwuser 6144 Oct  3 17:49 20220805
+drwxr-xr-x. 7 Wei.Huang pwuser 6144 Oct  3 17:49 20231219
+drwxr-xr-x. 6 Wei.Huang pwuser 6144 Oct  3 17:49 20240416
+
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:51 025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 050
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 100
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 400
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 500
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl cpl/20220805/
+total 40
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC1152o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC192o050
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC3072o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC384o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC384o050
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC48o400
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC48o500
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC768o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC96o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC96o100
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl cpl/20230526/
+total 112
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC1152o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC1152o050
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC1152o100
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC1152o500
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC192o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC192o050
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC192o100
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC192o500
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC3072o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC3072o050
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC3072o100
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC3072o500
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC384o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC384o050
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC384o100
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC384o500
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC48o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC48o050
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC48o100
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC48o500
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC768o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC768o050
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC768o100
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC768o500
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC96o025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC96o050
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC96o100
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 aC96o500
+
+.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl datm/20220805/
+total 16
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 cfsr
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 gefs
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 gfs
+drwxr-xr-x. 4 Wei.Huang pwuser 6144 Oct  3 17:49 mom6
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl datm/20220805/mom6/
+total 8
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 17:52 100
+
+gdas
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 17:49 aero
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 17:49 crtm
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 17:52 fv3jedi
+drwxr-xr-x. 4 Wei.Huang pwuser 6144 Oct  3 17:52 gsibec
+drwxr-xr-x. 3 Wei.Huang pwuser 6144 Oct  3 17:52 obs
+drwxr-xr-x. 5 Wei.Huang pwuser 6144 Oct  3 17:52 soca
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl gldas
+total 8
+drwxr-xr-x. 6 Wei.Huang pwuser 6144 Oct  3 17:52 20220805
+drwxr-xr-x. 4 Wei.Huang pwuser 6144 Oct  3 17:54 20220920
+
+
+glwu/20220805
+
+
+lsl gsi
+total 100
+drwxr-xr-x. 4 Wei.Huang pwuser 22528 Oct  3 18:14 20221128
+drwxr-xr-x. 4 Wei.Huang pwuser 22528 Oct  3 18:16 20230112
+drwxr-xr-x. 5 Wei.Huang pwuser 22528 Oct  3 18:17 20230601
+drwxr-xr-x. 5 Wei.Huang pwuser 22528 Oct  3 18:18 20230911
+drwxr-xr-x. 5 Wei.Huang pwuser 22528 Oct  3 18:19 20240208
+
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl lut/20220805/
+total 73428
+-rw-r--r--. 1 Wei.Huang pwuser   202000 Oct  3 18:20 optics_BC.v1_3.dat
+-rw-r--r--. 1 Wei.Huang pwuser   461637 Oct  3 18:20 optics_DU.v15_3.dat
+-rw-r--r--. 1 Wei.Huang pwuser 73711072 Oct  3 18:20 optics_DU.v15_3.nc
+-rw-r--r--. 1 Wei.Huang pwuser   202000 Oct  3 18:20 optics_OC.v1_3.dat
+-rw-r--r--. 1 Wei.Huang pwuser   502753 Oct  3 18:20 optics_SS.v3_3.dat
+-rw-r--r--. 1 Wei.Huang pwuser   101749 Oct  3 18:20 optics_SU.v1_3.dat
+
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl mom6
+total 12
+drwxr-xr-x. 7 Wei.Huang pwuser 6144 Oct  3 18:17 20220805
+drwxr-xr-x. 7 Wei.Huang pwuser 6144 Oct  3 18:17 20231219
+drwxr-xr-x. 7 Wei.Huang pwuser 6144 Oct  3 18:17 20240416
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl mom6/20240416/
+total 20
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 18:26 025
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 18:26 050
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 18:27 100
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 18:27 500
+drwxr-xr-x. 6 Wei.Huang pwuser 6144 Oct  3 18:27 post
+
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl orog
+total 20
+drwxr-xr-x. 19 Wei.Huang pwuser 6144 Oct  3 18:32 20220805
+drwxr-xr-x. 20 Wei.Huang pwuser 6144 Oct  3 19:18 20230615
+drwxr-xr-x. 12 Wei.Huang pwuser 6144 Oct  3 20:28 20231027
+drwxr-xr-x. 12 Wei.Huang pwuser 6144 Oct  3 21:48 20240917
+drwxr-xr-x.  6 Wei.Huang pwuser 6144 Oct  3 22:28 global-nest.20240419
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl orog/20240917/
+total 21095436
+drwxr-xr-x. 4 Wei.Huang pwuser        6144 Oct  3 21:18 C1152
+drwxr-xr-x. 2 Wei.Huang pwuser        6144 Oct  3 21:25 C128
+drwxr-xr-x. 4 Wei.Huang pwuser        6144 Oct  3 21:25 C192
+drwxr-xr-x. 4 Wei.Huang pwuser        6144 Oct  3 21:46 C3072
+drwxr-xr-x. 2 Wei.Huang pwuser        6144 Oct  3 22:16 C3359
+drwxr-xr-x. 2 Wei.Huang pwuser        6144 Oct  3 22:20 C3445
+drwxr-xr-x. 4 Wei.Huang pwuser        6144 Oct  3 22:20 C384
+drwxr-xr-x. 4 Wei.Huang pwuser        6144 Oct  3 22:21 C48
+drwxr-xr-x. 4 Wei.Huang pwuser        6144 Oct  3 22:23 C768
+drwxr-xr-x. 4 Wei.Huang pwuser        6144 Oct  3 22:27 C96
+-rw-r--r--. 1 Wei.Huang pwuser   447900364 Oct  3 21:13 geo_em.d01.lat-lon.2.5m.HGT_M.nc
+-rw-r--r--. 1 Wei.Huang pwuser  1866240000 Oct  3 21:08 GlobalLakeDepth_GLDBv3release.dat
+-rw-r--r--. 1 Wei.Huang pwuser  1866240000 Oct  3 21:09 GlobalLakeDepth_GLOBathy.dat
+-rw-r--r--. 1 Wei.Huang pwuser   933120000 Oct  3 21:09 GlobalLakeStatus_GLDBv3release.dat
+-rw-r--r--. 1 Wei.Huang pwuser   933120000 Oct  3 21:10 GlobalLakeStatus_MODISp.dat
+-rw-r--r--. 1 Wei.Huang pwuser   933120000 Oct  3 21:10 GlobalLakeStatus_VIIRS.dat
+-rw-r--r--. 1 Wei.Huang pwuser 11197441020 Oct  3 21:13 HGT.Beljaars_filtered.lat-lon.30s_res.nc
+-rw-r--r--. 1 Wei.Huang pwuser   934169721 Oct  3 21:13 landcover.umd.30s.nc
+-rw-r--r--. 1 Wei.Huang pwuser   623028926 Oct  3 21:14 topography.antarctica.ramp.30s.nc
+-rw-r--r--. 1 Wei.Huang pwuser  1867289572 Oct  3 21:14 topography.gmted2010.30s.nc
+
+
+
+raw/orog
+
+reg2grb2/20220805
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl sfc_climo/
+total 12
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 22:48 20220805
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 22:51 20221017
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 22:57 20230925
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl ugwd
+total 16
+drwxr-xr-x. 9 Wei.Huang pwuser 6144 Oct  3 22:57 20220805
+drwxr-xr-x. 9 Wei.Huang pwuser 6144 Oct  3 23:00 20231027
+drwxr-xr-x. 9 Wei.Huang pwuser 6144 Oct  3 23:02 20240624
+drwxr-xr-x. 6 Wei.Huang pwuser 6144 Oct  3 23:05 global-nest.20240419
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl ugwd/20240624/
+total 36
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 23:03 C1152
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 23:03 C192
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 23:05 C3072
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 23:05 C384
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 23:05 C48
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 23:05 C768
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 23:05 C96
+-rwxr-xr-x. 1 Wei.Huang pwuser 4868 Oct  3 23:02 ugwp_limb_tau.nc
+
+
+
+.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl verif/20220805
+total 24
+drwxr-xr-x. 2 Wei.Huang pwuser 22528 Oct  3 23:07 climo_files
+drwxr-xr-x. 6 Wei.Huang pwuser  6144 Oct  3 22:30 vx_mask_files
+
+
+[Wei.Huang@awsepicweirocky8c7i48xlarge-25 fix]$ lsl wave
+total 12
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 23:08 20220805
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 23:08 20230426
+drwxr-xr-x. 2 Wei.Huang pwuser 6144 Oct  3 23:09 20240105
+
