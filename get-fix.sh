@@ -1,11 +1,11 @@
-On AWS, we have fix at:
-export BUCKET_URI=s3://noaa-nagape-none-ca-epic
+#!/bin/bash
+#On AWS, we have fix at:
+#aws --no-sign-request s3 ls  s3://noaa-nws-global-pds/fix
 
-/bucket/global-workflow-shared-data/fix
+srcdir=s3://noaa-nws-global-pds/fix
+tardir=/contrib/global-workflow-shared-data/fix.subset
 
-srcdir=${BUCKET_URI}/global-workflow-shared-data/fix
-
-tardir=/local/fix
+set -x
 
 for dir in aer/20220805 \
 	am/20220805 \
@@ -21,10 +21,10 @@ for dir in aer/20220805 \
 	gsi/20240208 \
 	lut/20220805 \
 	mom6/20240416/500 \
-	orog/20240917/C48 \
+	orog/20231027/C48 \
 	raw/orog \
 	reg2grb2/20220805 \
-	sfc_climo/20230925 \
+	sfc_climo/20220805 \
 	ugwd/20240624/C48 \
 	verif/20220805 \
 	wave/20240105
@@ -41,8 +41,35 @@ do
  #echo "Directory: ${directoryname}"
  #echo "Filename: ${localdirname}"
 
-  echo "mkdir -p ${directoryname}"
-  echo "cd ${directoryname}"
-  echo "aws s3 sync ${srcdir}/${dir} ${localdirname}"
+ #echo "mkdir -p ${directoryname}"
+ #echo "cd ${directoryname}"
+ #echo "aws --no-sign-request s3 sync ${srcdir}/${dir} ${localdirname}"
+
+  mkdir -p ${directoryname}
+  cd ${directoryname}
+  aws --no-sign-request s3 sync ${srcdir}/${dir} ${localdirname}
+done
+
+for file in ugwd/20240624/ugwp_limb_tau.nc
+do
+  fullsrcdir=${srcdir}/${file}
+  fulltardir=${tardir}/${file}
+
+ #Get directory
+  directoryname=$(dirname "${fulltardir}")
+ #Get localname
+  localname=$(basename "${fulltardir}")
+ #Print results
+ #echo "fulltardir Path: ${fulltardir}"
+ #echo "Directory: ${directoryname}"
+ #echo "Filename: ${localname}"
+
+ #echo "mkdir -p ${directoryname}"
+ #echo "cd ${directoryname}"
+ #echo "aws --no-sign-request s3 sync ${srcdir}/${dir} ${localname}"
+
+  mkdir -p ${directoryname}
+  cd ${directoryname}
+  aws --no-sign-request s3 cp ${srcdir}/${file} ${localname}
 done
 
