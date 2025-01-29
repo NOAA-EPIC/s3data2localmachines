@@ -58,7 +58,7 @@ then
 fi
 
 srcdir=s3://noaa-nws-global-pds/fix
-tardir=/contrib/global-workflow-shared-data/fix.${grid}subset
+tardir=/contrib/global-workflow-shared-data/fix.subset.a${atmgrid}o${ocngrid}
 
 dirlist=( "aer/20220805" "am/20220805" "chem/20220805/fimdata_chem" "chem/20220805/Emission_data" \
  	  "datm/20220805/cfsr" "datm/20220805/gefs" "datm/20220805/gfs" "glwu/20220805" \
@@ -71,8 +71,6 @@ subdirlist=( "cice/20240416/${ocngrid}" "cpl/20230526/a${atmgrid}o${ocngrid}" "d
 
 fulldirlist=( "${dirlist[@]}" "${subdirlist[@]}" )
 echo "new dirlist: ${fulldirlist[@]}"
-
-exit 0
 
 for dir in "${fulldirlist[@]}"
 do
