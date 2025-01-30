@@ -328,6 +328,4 @@ if __name__ == '__main__':
 
     ffd.update_s3dict()
 
-    sys.exit(0)
-
     ffd.fetchdata()
