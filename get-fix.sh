@@ -2,14 +2,17 @@
 #On AWS, we have fix at:
 #aws --no-sign-request s3 ls  s3://noaa-nws-global-pds/fix
 
-while getopts "a:o:g:v:h" option; do
+tardir=/contrib/global-workflow-shared-data/fix.subset
+
+while getopts "a:o:g:t:v:h" option; do
   case "$option" in
     a) atmgrid="$OPTARG" ;;
     o) ocngrid="$OPTARG" ;;
     g) gwhome="$OPTARG" ;;
+    t) tardir="$OPTARG" ;;
     v) verbose=true ;;
     h) help=true ;;
-    \?) echo "Usage: $0 [-a atmgrid] [-o ocngrid] [-v]" 
+    \?) echo "Usage: $0 [-a atmgrid] [-o ocngrid] [-t tardir] [-v] [-h]" 
       exit -1 ;;
   esac
 done
@@ -18,7 +21,7 @@ atmgridlist=( "C48" "C96" "C192" "C384" "C768" "C1152" )
 ocngridlist=( "500" "100" "050" "025" )
 
 if [ "$help" = true ]; then
-  echo "Usage: $0 -a atmgrid -o ocngrid -g gwhome [-v] [-h]" 
+  echo "Usage: $0 -a atmgrid -o ocngrid -g gwhome -t tardir [-v] [-h]" 
   echo "agrid options are: ${atmgridlist[@]}"
   echo "ogrid options are: ${ocngridlist[@]}"
   echo "gwhome is Global-Workflow directory"
@@ -104,8 +107,6 @@ fi
 #export wave_ver=20240105
 
 srcdir=s3://noaa-nws-global-pds/fix
-tardir=/contrib/global-workflow-shared-data/fix.subset
-#tardir=/contrib/global-workflow-shared-data/fix.subset.a${atmgrid}o${ocngrid}
 
 dirlist=( "aer/${aer_ver}" "am/${am_ver}" \
 	  "chem/${chem_ver}/fimdata_chem" "chem/${chem_ver}/Emission_data" \
@@ -119,8 +120,6 @@ echo "dirlist: ${dirlist[@]}"
 
 subdirlist=( "cice/${cice_ver}/${ocngrid}" "cpl/${cpl_ver}/a${atmgrid}o${ocngrid}" \
 	     "datm/${datm_ver}/mom6/${ocngrid}" "mom6/${mom6_ver}/${ocngrid}" \
-	     "orog/${orog_ver}/${atmgrid}" "ugwd/${ugwd_ver}/${atmgrid}" )
-
 echo "grid specified dirlist: ${subdirlist[@]}"
 
 fulldirlist=( "${dirlist[@]}" "${subdirlist[@]}" )
