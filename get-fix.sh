@@ -19,8 +19,8 @@ ocngridlist=( "500" "100" "050" "025" )
 
 if [ "$help" = true ]; then
   echo "Usage: $0 -a atmgrid -o ocngrid -g gwhome [-v] [-h]" 
-  echo "agrid options are: ${atmgrid[@]}"
-  echo "ogrid options are: ${ocngrid[@]}"
+  echo "agrid options are: ${atmgridlist[@]}"
+  echo "ogrid options are: ${ocngridlist[@]}"
   echo "gwhome is Global-Workflow directory"
   exit 0
 fi
