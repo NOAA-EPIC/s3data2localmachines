@@ -26,11 +26,6 @@ class FetchFIXdata():
        #    print('local dir: <%s> does not exist. Stop' %(localdir))
        #    sys.exit(-1)
 
-        self.ugwd_ver = None
-        self.mom6_ver = None
-        self.fix_ver = None
-        self.gsi_ver = None
-
         self.verdict = {}
         self.s3dict = {}
         self.s3dict['raworog'] = 'raw/orog'
@@ -157,19 +152,19 @@ class FetchFIXdata():
             parentdir, dirname = os.path.split(localdir)
             if (self.verbose):
                 print('Create local %s dir: ', parentdir)
-           #path = Path(parentdir)
-           #path.mkdir(parents=True, exist_ok=True)
+            path = Path(parentdir)
+            path.mkdir(parents=True, exist_ok=True)
             if (self.verbose):
                 print(cmd)
             print('Downloading ', localdir)
-           #returned_value = subprocess.call(cmd, shell=True)  # returns the exit code in unix
-           #if (self.verbose):
-           #    print('returned value:', returned_value)
+            returned_value = subprocess.call(cmd, shell=True)  # returns the exit code in unix
+            if (self.verbose):
+                print('returned value:', returned_value)
 
 #----------------------------------------------------------------------------------------------------------------
     def fetch_ugwp_limb_tau(self):
-        ugwp_limb_tau_remotepath = '%s/ugwd/%s/ugwp_limb_tau.nc' %(self.aws_fix_bucket, self.ugwd_ver)
-        ugwp_limb_tau_localdir = '%s/ugwd/%s' %(self.targetdir, self.ugwd_ver)
+        ugwp_limb_tau_remotepath = '%s/ugwd/%s/ugwp_limb_tau.nc' %(self.aws_fix_bucket, self.fix_ver_dict['ugwd_ver'])
+        ugwp_limb_tau_localdir = '%s/ugwd/%s' %(self.targetdir, self.fix_ver_dict['ugwd_ver'])
         filename = '%s/ugwp_limb_tau.nc' %(ugwp_limb_tau_localdir)
         path = Path(ugwp_limb_tau_localdir)
         path.mkdir(parents=True, exist_ok=True)
@@ -192,10 +187,10 @@ class FetchFIXdata():
                 print('returned value:', returned_value)
 
 #----------------------------------------------------------------------------------------------------------------
-    def set_fix_ver_from_gwhome(gwhome, verdict):
+    def set_fix_ver_from_gwhome(self, gwhome, verdict):
         fix_ver_file = '%s/versions/fix.ver'
         self.fix_ver_dict = verdict
-        if (os.path.isfile(filename)):
+        if (os.path.isfile(fix_ver_file)):
             with open(fix_ver_file, "r") as file:
                 for line in file.readlines():
                     if (line.find('export ') >= 0):
@@ -285,8 +280,8 @@ if __name__ == '__main__':
             ocngrid = a
         elif o in ['--localdir']:
             localdir = a
-        elif o in ['--gwhom']:
-            gwhom = a
+        elif o in ['--gwhome']:
+            gwhome = a
         else:
             _, vername = o.split('--')
             print('vername: <%s>' %(vername))
@@ -321,10 +316,10 @@ if __name__ == '__main__':
                        ocngridarray=ocngridarray,
                        localdir=localdir, verbose=verbose)
 
-    if (gwhome is not None):
-        ffd.set_fix_ver_from_gwhome(gwhome, verdict)
-    else:
+    if (gwhome is None):
         ffd.set_default_fix_ver(verdict)
+    else:
+        ffd.set_fix_ver_from_gwhome(gwhome, verdict)
 
     ffd.update_s3dict()
 
